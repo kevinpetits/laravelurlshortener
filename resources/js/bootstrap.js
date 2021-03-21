@@ -1,3 +1,5 @@
+const { default: MCDatepicker } = require('mc-datepicker');
+
 window._ = require('lodash');
 
 /**
@@ -28,3 +30,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // });
 
 window.validUrl = require('valid-url');
+
+// window.MCDatePicker = require('mc-datepicker');
+
+if(document.getElementById("datepicker")){
+    const picker = MCDatepicker.create({
+        el: '#datepicker',
+        bodyType: "inline",
+        dateFormat: 'mm-dd-yyyy',
+        disableDates: [new Date()]
+    });
+}
+

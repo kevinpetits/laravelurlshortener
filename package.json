@@ -21,6 +21,9 @@
         "tailwindcss": "^2.0.2"
     },
     "dependencies": {
+        "mc-datepicker": "^0.1.1",
+        "sass": "^1.32.8",
+        "sass-loader": "^11.0.1",
         "valid-url": "^1.0.9"
     }
 }

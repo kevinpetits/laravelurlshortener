@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UrlController;
+use App\Models\Url;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,16 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('list', [UrlController::class, 'index'])->name('urls.index');
+});
+
 
 require __DIR__.'/auth.php';
 
 Route::get('{code}', 'App\Http\Controllers\UrlController@show');
 
 Route::post('url', [UrlController::class, 'store']);
+
+Route::put('updateurl', [UrlController::class, 'update']);
