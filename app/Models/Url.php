@@ -11,7 +11,7 @@ class Url extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['url', 'user_id'];
+    protected $fillable = ['url', 'user_id', 'code', 'expiration', 'active'];
 
     public $timestamps = false;
 

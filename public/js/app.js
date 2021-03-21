@@ -3906,9 +3906,11 @@ window.shorter = {
     });
   },
   delete_url: function delete_url(code) {
-    axios.put('/deleteurl', {
+    console.log(code);
+    axios["delete"]("/deleteurl/".concat(code), {
       code: code
     }).then(function (response) {
+      // console.log(response);
       location.reload();
     }).then(function (error) {// console.log(error.data)
     });

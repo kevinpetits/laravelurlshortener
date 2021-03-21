@@ -54,4 +54,17 @@ class UrlController extends Controller
             'msg' => "Url updated successfully"
         ]);
     }
+
+    public function delete($code)
+    {
+        // return $request;
+        if(Url::where('code', $code)->delete()){
+            return response()->json([
+                'msg' => "Url deleted successfully"
+            ]);
+        }else {
+            return response()->json(['error'=>"wtf"]);
+        }
+
+    }
 }

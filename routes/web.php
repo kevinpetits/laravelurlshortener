@@ -35,3 +35,5 @@ Route::get('{code}', 'App\Http\Controllers\UrlController@show');
 Route::post('url', [UrlController::class, 'store']);
 
 Route::put('updateurl', [UrlController::class, 'update']);
+
+Route::delete('deleteurl/{code}', [UrlController::class, 'delete']);

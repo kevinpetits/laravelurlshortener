@@ -52,9 +52,11 @@ window.shorter = {
         });
     },
     delete_url: (code) => {
-        axios.put('/deleteurl', {
+        console.log(code);
+        axios.delete(`/deleteurl/${code}`, {
             code: code,
         }).then(function(response){
+            // console.log(response);
             location.reload();
         }).then(function(error){
             // console.log(error.data)
